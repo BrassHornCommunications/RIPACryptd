@@ -2,6 +2,8 @@
 *.o
 *.a
 *.so
+RIPACryptd
+rcrypt.bolt
 
 # Folders
 _obj
@@ -22,3 +24,4 @@ _testmain.go
 *.exe
 *.test
 *.prof
+

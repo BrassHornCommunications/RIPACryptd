@@ -1,0 +1,397 @@
+{{define "faq"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RIPACrypt - FAQ</title>
+    <link rel="shortcut icon" href="../images/icons/favicon.png" />
+    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap & Styles -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <link href="../css/block_grid_bootstrap.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/owl.carousel.css" rel="stylesheet">
+    <link href="../css/owl.theme.css" rel="stylesheet">
+    <link href="../css/animate.min.css" rel="stylesheet" />
+    <link href="../css/jquery.circliful.css" rel="stylesheet" />
+    <link href="../css/slicknav.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Top Bar-->
+    <div class="top">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="logo">
+                    <a href="index.html"><img src="../images/logo.png" alt="" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-9">
+
+                <nav id="desktop-menu">
+                    <ul class="sf-menu" id="navigation">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li class="current"><a href="/faq/">FAQ</a></li>
+                        <li><a href="#">Help</a>
+                            <ul>
+                                <li><a href="/help/">Download, Install &amp; Getting Started</a></li>
+                                <li><a href="/help/create/">Create a Crypt</a></li>
+                                <li><a href="/help/checkin/">Check in</a></li>
+                                <li><a href="/help/view/">View a Crypt</a></li>
+                                <li><a href="/help/destroy/">Destroy a Crypt</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- End of Top Bar-->
+
+    <!-- Breadcrumps -->
+    <div class="breadcrumbs">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>FAQ</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb">
+                    <li>You are here: </li>
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li>Pages
+                    </li>
+                    <li class="active">FAQ</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- End of Breadcrumps -->
+
+    <!-- FAQ -->
+
+    <section class="faq">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Frequently asked questions</h2>
+                <p>RIPACrypt isn't S3, or pastebin or dropbox so you've probably got a few questions...</p>
+            </div>
+        </div>
+
+        <div class="row spacing-40">
+            <div class="col-sm-12">
+                <div class="faq-questions">
+                    <h3 class="badge">HAVE QUESTIONS?</h3>
+
+                    <div id="accordion" class="panel-group spacing-40">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Why have storage that self destructs?</a></h4>
+                            </div>
+
+                            <div id="collapse1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                  <p>Destroying the crypt provides reasonable doubt as to whether you still possess the <em>key</em> required in a RIPA s.49 notice. It's also a useful failsafe for other purposes.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">How do I get more storage space?</a></h4>
+                            </div>
+
+                            <div id="collapse2" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                  <p>In order to store larger sized crypts <em>(everyone gets 2Kb free)</em> you will need to transfer Bitcoin to the wallet address you were sent when you created your account.</i>
+                                  <p>Please note: We are not assigning a &pound; value to the storage we are simply saying that for every byte of storage you want to use you must transfer 1μBTC to us.</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Why is it so "expensive"?</a></h4>
+                            </div>
+
+                            <div id="collapse3" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                <p>Several reasons, the first is to discourage people from storing large amounts of data <em>(this is supposed to be a password vault after all)</em></p>
+                                <p>Secondly it is a one time cost that never expires. If for example you transferred 2048μBTC to the wallet ID you would have an extra 2Kb added to your storage quota. If you then stored 1964 bytes in a crypt it would stay live for as long as you continued to check-in. If the crypt is destroyed your storage quota is restored.</p>
+                                <p>Finally the (btc)bits-for-bytes element is an easy yet anonymous anti-abuse strategy.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Are Bitcoin Deposits Refundable?</a></h4>
+                            </div>
+
+                            <div id="collapse4" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                  <p>Under normal circumstances; <strong>No.</strong> You are not 'buying' anything. You are simply transfering some bytes to our control, be that data in your crypt or transactions on the blockchain.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5">What are the minimum / maximum check-ins / durations?</a></h4>
+                            </div>
+
+                            <div id="collapse5" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                  <p>As of writing the minimum elapsed duration (check-ins x duration) is 3 hours (3x 1 hour), the maximum is a month (30x 1 day).
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6">What is a crypt?</a></h4>
+                            </div>
+
+                            <div id="collapse6" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                  <p>A crypt is the logical reference to the encrypted bytes you've stored along the associated meta-data. It is commonly described as a JSON object e.g.</p>
+                                  <pre>{
+ "status_code":201,
+ "success":true,
+ "status_message":"Crypt successfully created!",
+ "version":1,
+ "crypt":
+ {
+  "crypt_id": "29d48f65cf5899ba6119db5fc37648e5",
+  "ciphertext":"W2+6uaow2WwHSitrOw1KmY9yqUykv41cHmdPtMF9pwP4Y9Q/eqOeqOv86+aFFoELgs4=",
+  "crypt_timestamp":1464825599,
+  "crypt_description":"Description of your crypt (preferably tying it the computer/secret you are protecting",
+  "is_crypt_destroyed":false,
+  "last_checkin":1464825599,
+  "check_in_duration":86400,
+  "miss_count":3
+ }
+}
+                                  </pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse7">What happens when too many check-ins are missed? </a></h4>
+                            </div>
+
+                            <div id="collapse7" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                  <p>A watchdog process runs every few minutes which checks for any active crypts and then measures the last touch time.</p>
+                                  <p>If a crypt has missed the requisite number of check-ins the crypt is loaded into memory, the secret element is zeroed out, the crypt is set to read-only, the isDestroyed boolean is set to true and a destroyed time is set. The record is then saved back to the database.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse8">Is this service accessible via Tor? </a></h4>
+                            </div>
+
+                            <div id="collapse8" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                  <p><strong>Yes!</strong> As we do not use CloudFlare <em>(or any other service that discriminates against Tor users)</em> and as one of the larger UK based Tor Relay families we actively encourage people to use Tor.</p>
+                                  <p>This service is also available as a Tor Hidden Service; http://xxxxxxxxxxxxxx.onion</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse9">Is the client / server code open source?</a></h4>
+                            </div>
+
+                            <div id="collapse9" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p><strong>Yes.</strong> This software is licensed under the BSD 2 clause license.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse10">Do I have to use your client / is there an open API?</a></h4>
+                            </div>
+
+                            <div id="collapse10" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p><strong>No.</strong> You do not have to use our 'official' client, there is an open API and it can be easily interacted with via the bash CLI using environment variables, curl, base64 and gpg.</p>
+
+                                    <p>The API is documented <a href="https://github.com/BrassHornCommunications/RIPACryptd/blob/master/README.md">here</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <div class="needsupport">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <h3 class="badge">RIPACrypt Policies</h3>
+
+                <div class="block-grid-xs-1 block-grid-sm-4 block-grid-md-3 supportchannels">
+
+                    <div class="block-grid-item wow zoomIn" data-wow-delay="0.2s">
+                        <a href=""><i class="fa fa-gavel"></i></a>
+                        <h6>Law Enforcement Queries</h6>
+                        <p>We do not keep logs, we do not request or retain any identification data and we cannot decrypt the contents of a crypt.</p>
+                    </div>
+
+                    <div class="block-grid-item wow zoomIn" data-wow-delay="0.4s">
+                        <a href=""><i class="fa fa-unlock"></i></a>
+                        <h6>Loss of Private Keys</h6>
+                        <p>If a GPG private key is list there is nothing we can do. Everything from authentication through to the secrets you store are protected by that key and our service never sees it.</p>
+                    </div>
+
+                    <div class="block-grid-item  wow zoomIn" data-wow-delay="0.6s">
+                        <a href=""><i class="fa fa-check-circle"></i></a>
+                        <h6>DMCA et al Takedowns</h6>
+                        <p>Encrypted data stored within RIPACrypt is <em>unlikely</em> to be removed. This is due to the fact that only the owner can prove what it contains.</p>
+                    </div>
+
+                    <div class="block-grid-item  wow zoomIn" data-wow-delay="0.8s">
+                        <a href=""><i class="fa fa-user-secret"></i></a>
+                        <h6>Anonymity</h6>
+                          <p>We do not store logs<br/>
+                          We do not require any identification to set up or use our service.<br/>
+                          We do not surrender any information without a court order<br/>
+                          We do have a <a href="">hidden service</a>.</p>
+                    </div>
+
+                    <div class="block-grid-item  wow zoomIn" data-wow-delay="0.6s">
+                        <a href=""><i class="fa fa-trash-o"></i></a>
+                        <h6>Data/Crypt Recovery</h6>
+                        <p>If a crypt is destroyed as scheduled there is no way to recover it. Data destruction is the purpose of this service. You should maintain <em>(deniable)</em> backups.</p>
+                    </div>
+
+                </div>
+
+                <div class="block-grid-xs-1 block-grid-sm-4 block-grid-md-1 supportchannels">
+                  <div class="block-grid-item  wow zoomIn" data-wow-delay="0.8s">
+                        <a href=""><i class="fa fa-heartbeat"></i></a>
+                        <h6>Service Level Agreement</h6>
+                        <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- End of FAQ -->
+
+    <!--  Footer -->
+    <div class="social">
+        <div class="row">
+
+            <div class="col-sm-6">
+                <ul>
+                    <li><a href="https://twitter.com/ripacrypt" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="https://github.com/BrassHornCommunications/" title="github" target="_blank"><i class="fa fa-github"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6">
+
+            </div>
+        </div>
+    </div>
+
+    <section class="footer">
+        <div class="row">
+            <div class="col-sm-3">
+                <h4>Navigation.</h4>
+                <ul>
+                    <li><a href="/about/">About</a>
+                    </li>
+                    <li><a href="/faq/">FAQ</a>
+                    </li>
+                    <li><a href="/help/">Help</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <h4>Brass Horn Communications</h4>
+                <ul>
+                    <li><a href="https://brasshorncommunications.uk/projects/">Projects</a>
+                    </li>
+                    <li><a href="https://globe.torproject.org/#/search/query=BrassHorn">Tor Relays</a>
+                    </li>
+                    <li><a href="https://brasshorncommunications.uk/canary/">Warrant Canary</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-3">
+                <h4>Ask.</h4>
+                <ul class="questions">
+                    <li><a href="mailto:hello@brasshorncommunications.uk"><i class="fa fa-envelope"></i> E-MAIL US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--  End of Footer -->
+<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/hoverIntent.js"></script>
+    <script src="../js/superfish.min.js"></script>
+    <script src="../js/owl.carousel.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/jquery.circliful.min.js"></script>
+    <script src="../js/waypoints.min.js"></script>
+    <script src="../js/jquery.slicknav.min.js"></script>
+    <script src="../js/retina.min.js"></script>
+    <script src="../js/custom.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $("#testimonials-carousel").owlCarousel({
+            items: 1,
+            autoPlay: 5000,
+            itemsDesktop: [1199, 1],
+            itemsDesktopSmall: [979, 1],
+            itemsTablet: [768, 1]
+        });
+    });
+    </script>
+
+</body>
+
+</html>
+{{end}}

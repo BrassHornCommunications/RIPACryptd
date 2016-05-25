@@ -1,0 +1,269 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RIPACrypt - Self Destructing Secrets</title>
+    <link rel="shortcut icon" href="images/icons/favicon.png" />
+    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap & Styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/block_grid_bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/jquery.circliful.css" rel="stylesheet" />
+    <link href="css/slicknav.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+      <!-- Top Bar-->
+    <div class="top">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" alt="" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-9">
+
+                <nav id="desktop-menu">
+                    <ul class="sf-menu" id="navigation">
+                        <li class="current"><a href="/">Home</a></li>
+			<li><a href="/about/">About</a></li>
+                        <li><a href="/faq/">FAQ</a></li>
+                        <li><a href="#">Help</a>
+                            <ul>
+                                <li><a href="/help/">Download, Install &amp; Getting Started</a></li>
+                                <li><a href="/help/create/">Create a Crypt</a></li>
+                                <li><a href="/help/checkin/">Check in</a></li>
+                                <li><a href="/help/view/">View a Crypt</a></li>
+                                <li><a href="/help/destroy/">Destroy a Crypt</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- End of Top Bar-->
+
+
+   <!-- Video -->
+    <div id="index-video" class="hidden-xs">
+        <div class="index-video-container">
+            <div class="videocaption">
+                <h2>RIPACrypt</h2>
+                <h4>Self Destructing Encrypted Secrets</h4>
+                <p><a class="btn btn-slide" href="/about/">Find out more</a>
+                </p>
+            </div>
+            <video autoplay loop muted>
+                <source src="video/148717512.mp4" type="video/mp4">
+                <source src="video/148717512.webm" type="video/webm">
+                <source src="video/148717512.ogv" type="video/ogg">
+            </video>
+        </div>
+    </div>
+    <!-- End of Video -->
+
+
+    <!--  Features -->
+    <section class="features">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>You can't handover something that no longer exists..</h2>
+                <span>A SaaS platform that automatically destroys secrets if a protected computer fails to check-in...</span>
+            </div>
+        </div>
+
+        <div class="row spacing-70">
+
+            <div class="col-sm-6">
+                <div class="feature wow zoomIn" data-wow-delay="0.4s">
+                    <img src="images/ssd.png" alt="" />
+                    <h4>Protect Full Disk Encryption</h4>
+                    <p>Store the keys for full disk encryption, if the computer goes offline for long enough the keys are destroyed.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="feature wow zoomIn" data-wow-delay="0.6s">
+                    <img src="images/secure.png" alt="" />
+                    <h4>End-to-End Encryption</h4>
+                    <p>The data we store is encrypted with a key that only you have. We cannot access your data.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End of Features -->
+
+
+    <!--  Call to Action -->
+    <section class="calltoaction">
+
+        <div class="row wow zoomIn" data-wow-delay="0.2s">
+            <div class="col-sm-10 com-md-8 center-block">
+
+                <div class="row no-gutter cta-content">
+                    <div class="col-sm-12">
+
+                        <div class="offerdescription wow fadeInUp" data-wow-delay="0.7s">
+                            <h2>2Kb Free - 1μBTC/byte thereafter</h2>
+                            <p>2Kb is enough to store an encrypted 1024 character password</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wow fadeInUp" data-wow-delay="0.9s">
+                    <form class="form-inline domainsearch" method="get" action="/help/create/">
+                        <div class="row no-gutter">
+                            
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-primary" style="width:100%">Create a Crypt</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- End of Call to Action -->
+
+    <!--  Statistics -->
+    <section class="statistics">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>A few <i class="fa fa-heart"></i> lovely stats</h2>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="row spacing-70">
+
+            <div class="col-sm-4">
+                <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <p id="myStat1" data-dimension="175" data-animationstep="0.5" data-text="781" data-width="25" data-fontsize="29" data-percent="24" data-fgcolor="#DE6262" data-bgcolor="#E1E3E4" data-fill="#CECECE"></p>
+                    <span>Crypts</span>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <p id="myStat2" data-dimension="175" data-animationstep="0.5" data-text="3Gb" data-width="25" data-fontsize="29" data-percent="1" data-fgcolor="#DE6262" data-bgcolor="#E1E3E4" data-fill="#CECECE"></p>
+                    <span>Gigabytes Stored</span>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="wow fadeInUp" data-wow-delay="0.3s">
+                    <p id="myStat3" data-dimension="175" data-animationstep="0.5" data-text="0" data-width="25" data-fontsize="29" data-percent="0" data-fgcolor="#DE6262" data-bgcolor="#E1E3E4" data-fill="#CECECE"></p>
+                    <span>Warrants Received</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End of Statistics -->
+
+
+   <!--  Footer -->
+   <div class="social">
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <ul>
+                        <li><a href="https://twitter.com/ripacrypt" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="https://github.com/BrassHornCommunications/" title="github" target="_blank"><i class="fa fa-github"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6">
+                 </div>
+            </div>
+        </div>
+
+
+    <section class="footer">
+        <div class="row">
+            <div class="col-sm-3">
+                <h4>Navigation.</h4>
+                <ul>
+                    <li><a href="/about/">About</a>
+                    </li>
+                    <li><a href="/faq/">FAQ</a>
+                    </li>
+                    <li><a href="/help/">Help</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <h4>Brass Horn Communications</h4>
+                <ul>
+                    <li><a href="https://brasshorncommunications.uk/projects/">Projects</a>
+                    </li>
+                    <li><a href="https://globe.torproject.org/#/search/query=BrassHorn">Tor Relays</a>
+                    </li>
+                    <li><a href="https://brasshorncommunications.uk/canary/">Warrant Canary</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-3">
+                <h4>Ask.</h4>
+                <ul class="questions">
+                    <li><a href="mailto:hello@brasshorncommunications.uk"><i class="fa fa-envelope"></i> E-MAIL US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--  End of Footer -->
+<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/hoverIntent.js"></script>
+    <script src="js/superfish.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.circliful.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/retina.min.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script>
+
+    // ______________ STATS
+jQuery(document).ready(function() {
+$('.statistics').waypoint(function() {
+
+ $('#myStat1').circliful();
+ $('#myStat2').circliful();
+ $('#myStat3').circliful();
+ $('#myStat4').circliful();
+
+}, { offset: 800, triggerOnce: true });
+});
+
+    </script>
+</body>
+</html>
+{{end}}

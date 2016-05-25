@@ -1,0 +1,273 @@
+{{define "help-index"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RIPACrypt - Help | Download and Install</title>
+    <link rel="shortcut icon" href="../images/icons/favicon.png" />
+    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap & Styles -->
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/bootstrap-theme.css" rel="stylesheet">
+    <link href="../../css/block_grid_bootstrap.css" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../css/owl.carousel.css" rel="stylesheet">
+    <link href="../../css/owl.theme.css" rel="stylesheet">
+    <link href="../../css/animate.min.css" rel="stylesheet" />
+    <link href="../../css/jquery.circliful.css" rel="stylesheet" />
+    <link href="../../css/slicknav.css" rel="stylesheet" />
+    <link href="../../css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Top Bar-->
+    <div class="top">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="logo">
+                    <a href="/"><img src="../images/logo.png" alt="" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-9">
+
+                <nav id="desktop-menu">
+                    <ul class="sf-menu" id="navigation">
+                        <li><a href="/">Home</a></li>
+			<li><a href="/about/">About</a></li>
+                        <li><a href="/faq/">FAQ</a></li>
+                        <li class="current"><a href="#">Help</a>
+                            <ul>
+                                <li class="current"><a href="/help/">Download, Install &amp; Getting Started</a></li>
+				<li><a href="/help/create/">Create a Crypt</a></li>
+				<li><a href="/help/checkin/">Check in</a></li>
+				<li><a href="/help/view/">View a Crypt</a></li>
+				<li><a href="/help/destroy/">Destroy a Crypt</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- End of Top Bar-->
+
+    <!-- Breadcrumps -->
+    <div class="breadcrumbs">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Download, Install &amp; Getting Started</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb">
+                    <li>You are here: </li>
+                    <li><a href="/">Home</a></li>
+                    <li>Help</li>
+                    <li class="active">Download, Install &amp; Getting Started</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- End of Breadcrumps -->
+
+    <!-- Blog -->
+    <div class="blog single">
+    <div class="row">
+            <div class="col-sm-8">
+
+            <!-- Blog Post-->
+            <article>
+            <img src="images/quote-image2.jpg" alt="" />
+            <div class="post-content">
+            <h2>Download, Install &amp; Getting Started</h2>
+            <div class="thedate">Last updated: 1st June 2016</div>
+            <hr/>
+            <h3>Downloading and Installing</h3>
+            <p>We do not currently offer built binaries for RIPACrypt as we encourage people to read the sourcecode to ensure it does what we claim it does before compiling and executing it. To get the latest version of the RIPACrypt client visit https://github.com/BrassHornCommunications/RIPACrypt and clone the repository.</p>
+            <pre>git clone https://github.com/BrassHornCommunications/RIPACrypt.git</pre>
+            <p>RIPACrypt is written in <a href="https://golang.org/">GoLang</a> so you will need to <a href="https://golang.org/dl/">download and install GoLang</a>. Once installed for your operating system you will need to build the binary, do this by issuing the command <em>go build</em> in the RIPACrypt directory e.g.</p>
+            <pre>
+~]$ git clone https://github.com/BrassHornCommunications/RIPACrypt.git
+Cloning into 'RIPACrypt'...
+remote: Counting objects: 5, done.
+remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 5
+Unpacking objects: 100% (5/5), done.
+Checking connectivity... done.
+~]$
+~]$ cd RIPACrypt/
+RIPACrypt]$ go build
+</pre>
+          <p>Unless there are any error messages you will now have a <em>RIPACrypt</em> executable in your current directory. This executable is your interface to our service.</p>
+          <p>You may want to put this executable in <em>/usr/local/bin</em> or similar</p>
+
+          <h3>Getting Started</h3>
+          <p>All communication with the RIPACrypt service is over SSL/TLS and all secrets are encrypted with GPG. To get started you will need to register a GPG public key with the service. Whilst you can use your own GPG keypair we strongly recommend you allow RIPACrypt to handle keys itself to ensure seamless encryption/decryption and challenge answering.</p>
+
+          <pre>RIPACrypt register</pre>
+
+          <p>You will see the following output;</p>
+          <pre>2016/05/20 14:16:59 Cannot read configuration file using defaults /home/bhc/.ripacrypt/rc.conf
+No public key passed - generating our own one
+7CF4FE815C3B6B85 pocMACwgXuENpraNMXXlWsJy@clients.ripacrypt.download
+Successfully created your Public Key with fingerprint  7CF4FE815C3B6B85
+Your user id is:  22
+Your unique Bitcoin address is:  16DryUfwH7gF9cVhLuwjkgrxzrBuit5A4D
+          </pre>
+          
+          <p>Your home directory will now contain a <em>.ripacrypt</em> directory containing a JSON configuration file with your user-id and GPG keypair. <strong>This is the only copy of your encryption keys - if you lose them you cannot decrypt your data or interact with your RIPACrypt account!</strong></p>
+
+          <p>All accounts come with a 2Kbyte crypt allowance which is enough to store an encrypted version of a 1000+ character password. The next step is to store the data you want to be stored / destroyed.<p>
+
+          <pre>echo "MyFullDiskEncryptionPassphraseOrWhatever" | ./RIPACrypt new -description="A short\
+ description to help with prove this crypt is yours"</pre>
+          <p>or</p>
+          <pre>./RIPACrypt new -data=/path/to/data -description="A short\
+ description to help with prove this crypt is yours"</pre>
+          <p>You will receive back the ID of your crypt and some meta information about the crypt itself.</p>
+          <pre>{
+ "status_code":201,
+ "success":true,
+ "status_message":"Crypt successfully created!",
+ "version":1,
+ "crypt":
+ {
+  "crypt_id": "29d48f65cf5899ba6119db5fc37648e5",
+  "ciphertext":"W2+6uaow2WwHSitrOw1KmY9yqUykv41cHmdPtMF9pwP4Y9Q/eqOeqOv86+aFFoELgs4=",
+  "crypt_timestamp":1464825599,
+  "crypt_description":"A short description to help with prove this crypt is yours",
+  "is_crypt_destroyed":false,
+  "last_checkin":1464825599,
+  "check_in_duration":86400,
+  "miss_count":3
+ }
+}</pre>
+          <p>By default the checkin duration will be set to 86400 seconds (24 hours) with a miss count of 3. This means you have 3 days to perform your first checkin or your data will be destroyed.</p>
+
+          <p>More information is available about <a href="/help/create/">Creating Crypts</a>, <a href="/help/checkin/">Checking in</a> and <a href="/help/view/">Viewing a Crypt</a></p>
+
+            </div>
+            </article>
+            <!-- End of Blog Post-->
+
+
+        </div>
+
+        <div class="col-sm-4">
+        <div class="sidebar">
+
+        <div class="widget">
+        <h3 class="badge">HELP</h3>
+        <ul>
+        <li class="current"><a href="/help/download/">Download, Install &amp; Getting Started</a></li>
+				<li><a href="/help/create/">Create a Crypt</a></li>
+				<li><a href="/help/checkin/">Check in</a></li>
+				<li><a href="/help/view/">View a Crypt</a></li>
+				<li><a href="/help/destroy/">Destroy a Crypt</a></li>
+        </ul>
+        </div>
+
+        <!--<div class="widget">
+        <form class="form-inline blogsearch" method="post" action="#">
+ <input type="text" class="form-control" name="sld" onfocus="if (this.value == 'Search & Press Enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search & Press Enter';}" value="Search & Press Enter" />
+</form>
+   </div>-->
+
+        <div class="widget">
+       <h3 class="badge">Advanced Usage</h3>
+        <ul>
+          <li><a href="/help/challenge/">Generate a Challenge</a></li>
+          <li><a href="/help/newbtc/">Generate a new Bitcoin Address</a></li>
+        </ul>
+   </div>
+
+
+
+        </div>
+
+        </div>
+
+        </div>
+</div>
+
+
+    <!-- End of Blog -->
+
+    <!--  Footer -->
+    <div class="social">
+        <div class="row">
+
+            <div class="col-sm-6">
+                <ul>
+                    <li><a href="#" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" title="github" target="_blank"><i class="fa fa-github"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6">
+            </div>
+        </div>
+    </div>
+
+       <section class="footer">
+        <div class="row">
+            <div class="col-sm-3">
+                <h4>Navigation.</h4>
+                <ul>
+                    <li><a href="/about/">About</a>
+                    </li>
+                    <li><a href="/faq/">FAQ</a>
+                    </li>
+                    <li><a href="/help/">Help</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <h4>Brass Horn Communications</h4>
+                <ul>
+                    <li><a href="https://brasshorncommunications.uk/projects/">Projects</a>
+                    </li>
+                    <li><a href="https://globe.torproject.org/#/search/query=BrassHorn">Tor Relays</a>
+                    </li>
+                    <li><a href="https://brasshorncommunications.uk/canary/">Warrant Canary</a>
+                    </li>
+                </ul>
+            </div>  
+
+            <div class="col-sm-3">
+                <h4>Ask.</h4>
+                <ul class="questions">
+                    <li><a href="mailto:hello@brasshorncommunications.uk"><i class="fa fa-envelope"></i> E-MAIL US</a>
+                    </li>
+                </ul>
+            </div>  
+        </div>
+    </section>      
+
+    <!--  End of Footer -->
+<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/hoverIntent.js"></script>
+    <script src="js/superfish.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.circliful.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/retina.min.js"></script>
+    <script src="js/custom.js"></script>
+
+
+
+
+</body>
+
+</html>
+{{end}}

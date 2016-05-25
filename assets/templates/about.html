@@ -1,0 +1,282 @@
+{{define "about"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RIPACrypt - About</title>
+    <link rel="shortcut icon" href="../images/icons/favicon.png" />
+    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap & Styles -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <link href="../css/block_grid_bootstrap.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/owl.carousel.css" rel="stylesheet">
+    <link href="../css/owl.theme.css" rel="stylesheet">
+    <link href="../css/animate.min.css" rel="stylesheet" />
+    <link href="../css/jquery.circliful.css" rel="stylesheet" />
+    <link href="../css/slicknav.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Top Bar-->
+    <div class="top">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="logo">
+                    <a href="index.html"><img src="../images/logo.png" alt="" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-9">
+
+                <nav id="desktop-menu">
+                    <ul class="sf-menu" id="navigation">
+                        <li><a href="/">Home</a></li>
+			                  <li class="current"><a href="/about/">About</a></li>
+                        <li><a href="/faq/">FAQ</a></li>
+                        <li><a href="#">Help</a>
+                            <ul>
+                                <li><a href="/help/">Download, Install &amp; Getting Started</a></li>
+                                <li><a href="/help/create/">Create a Crypt</a></li>
+                                <li><a href="/help/checkin/">Check in</a></li>
+                                <li><a href="/help/view/">View a Crypt</a></li>
+                                <li><a href="/help/destroy/">Destroy a Crypt</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- End of Top Bar-->
+
+    <!-- Breadcrumps -->
+    <div class="breadcrumbs">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>About</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb">
+                    <li>You are here: </li>
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li>Pages
+                    </li>
+                    <li class="active">About</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- End of Breadcrumps -->
+
+    <!-- About Us -->
+    <section class="about">
+        <div class="about-hero">
+            <img src="../images/about_bg.jpg" alt="" />
+            <div class="about-text">
+                <hr/>
+                <h2>Why Self Destructing Secrets?</h2>
+                <p>Because even with the powers contained within RIPA our Government and the Police are attempting to bypass legal safeguards in order to decrypt your data!</p>
+            </div>
+        </div>
+
+        <div class="row spacing-70">
+            <div class="col-sm-8 center-block">
+              <p>The Regulation of Investigatory Powers Act contains within it a provision to punish people with upwards of 2 years in prision if they do not hand over decryption keys when the Police demand them. There <em>are</em> protections within the bill of which one is;
+<blockquote>
+(3) For the purposes of this section a person shall be taken to have shown that he was not in possession of a key to protected information at a particular time if—
+<br/><br/>
+(a) sufficient evidence of that fact is adduced to raise an issue with respect to it; and
+<br/><br/>
+(b) the contrary is not proved beyond a reasonable doubt.
+</blockquote></p>
+              <p>To this end Brass Horn Communications released the <a href="https://brasshorncommunications.uk/projects/s53/">S53 project</a> in mid 2015. This was a software/hardware combination which would destroy all data on a protected computer if it detected tampering <em>(or if a panic button was triggered)</em>. This was a thought experiment for this defence but some have since argued that a more subtle approach may be needed as "trapdooring" your data or purposefully destroying it via a panic button could violate other laws.</p>
+
+              <p>Using RIPACrypt one could store the pass phrase <em>(or a Bitlocker / LUKs keyfile etc)</em> for a given computer in a Crypt.  That computer could be configured to check-in every hour with a 3 hour expiry limit. If the computer was seized then RIPACrypt would destroy the data and timestamp when this was done. As the afflicted party you had no <em>direct</em> control over the destruction process.</p>
+            </div>
+        </div>
+
+        <div class="spacing-70"></div>
+
+        <div class="about-quote">
+            <div class="row full-width no-gutter">
+                <div class="col-sm-6 about-quote-column">
+                    <div class="thequote wow fadeInLeft" data-wow-delay="0.4s">
+                        <h5>THERE IS NO GUARANTEE THAT THE USE OF RIPACRYPT WILL PROTECT YOU FROM PROSECUTION</h5>
+                        <span>Failure to comply with a notice under the Regulation of Investigatory Powers Act 2000 carries a sentence of up to 5 years in prison.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row spacing-70">
+            <div class="col-sm-8 center-block">
+                <h3>Why Are You Doing This?</h3>
+                <p>Many civil libertarians objected to the compelled decryption powers within RIPA but the past 12 months has seen a worrying rise in the Governments desire to weaken or attack encryption.</p>
+                <p>This came to a head in 2016 when the National Crime Agency attempted to bypass the protections within RIPA <em>(having failed to enforce a s.49 Notice earlier)</em> and force Lauri Love to provide the decryption keys to property he had requested be returned.</p>
+                <p>It has become apparant that between the NCA's disregard for the law and the Home Office's desire to push the Investigatory Powers Bill through we need someting to protect people from compelled decryption!</p>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="about-quote odd">
+        <div class="row full-width no-gutter">
+            <div class="col-sm-6 col-sm-push-6 about-quote2-column">
+                <div class="thequote wow fadeInRight" data-wow-delay="0.4s">
+                    <h5>A child born today will grow up with no conception of privacy at all. They’ll never know what it means to have a private moment to themselves an unrecorded, unanalyzed thought. And that’s a problem because privacy matters; privacy is what allows us to determine who we are and who we want to be.</h5>
+                    <span>Edward Snowden</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--
+    <div class="testimonials">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>What Clients Think</h3>
+                <p>Foundation, Jane Addams John Lennon local solutions institutions action.</p>
+
+                <div id="testimonials-carousel" class="owl-carousel">
+
+                    <div class="item">
+                        <div class="testimonial-content">
+                            <div class="testimonialimg"><img src="images/testimonial1.jpg" alt="" />
+                            </div>
+                            <p>Future social movement carbon emissions reductions voice; foster reduce child mortality measures theory of social change emergent women and children. Life-expectancy gender rights safeguards save lives social analysis dignity health developing nations. </p>
+                            <div class="whoclient">
+                                <h5>Alvaro DeMichelis, Founder of <a href="">Global Corp.</a></h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="testimonial-content">
+                            <div class="testimonialimg"><img src="images/testimonial2.jpg" alt="" />
+                            </div>
+                            <p>International tackle working alongside. Economic security, significant invest, Ford Foundation respect public service crowdsourcing research affordable health. Philanthropy equal opportunity assessment expert accelerate United Nations environmental, poverty, political, public.</p>
+                            <div class="whoclient">
+                                <h5>Bjorn Swift, CEO of <a href="">Campaign Ltd.</a></h5>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="item">
+                        <div class="testimonial-content">
+                            <div class="testimonialimg"><img src="images/testimonial3.jpg" alt="" />
+                            </div>
+                            <p>Save the world citizens of change; medicine immunize, convener design thinking global network Kickstarter empowerment prevention effectiveness. Service improving quality youth incubation foster. Expanding community ownership, urban experience in the field scalable</p>
+                            <div class="whoclient">
+                                <h5>Bill Good, Chairman of <a href="">Solution S.A.</a></h5>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+-->
+    <!-- End of About Us -->
+
+
+    <!--  Footer -->
+    <div class="social">
+        <div class="row">
+
+            <div class="col-sm-6">
+                <ul>
+                    <li><a href="https://twitter.com/ripacrypt" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="https://github.com/BrassHornCommunications" title="github" target="_blank"><i class="fa fa-github"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6">
+
+            </div>
+        </div>
+    </div>
+
+    <section class="footer">
+        <div class="row">
+            <div class="col-sm-3">
+                <h4>Navigation.</h4>
+                <ul>
+                    <li><a href="/about/">About</a>
+                    </li>
+                    <li><a href="/faq/">FAQ</a>
+                    </li>
+                    <li><a href="/help/">Help</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <h4>Brass Horn Communications</h4>
+                <ul>
+                    <li><a href="https://brasshorncommunications.uk/projects/">Projects</a>
+                    </li>
+                    <li><a href="https://globe.torproject.org/#/search/query=BrassHorn">Tor Relays</a>
+                    </li>
+                    <li><a href="https://brasshorncommunications.uk/canary/">Warrant Canary</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-3">
+                <h4>Ask.</h4>
+                <ul class="questions">
+                    <li><a href="mailto:hello@brasshorncommunications.uk"><i class="fa fa-envelope"></i> E-MAIL US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--  End of Footer -->
+<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/hoverIntent.js"></script>
+    <script src="../js/superfish.min.js"></script>
+    <script src="../js/owl.carousel.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/jquery.circliful.min.js"></script>
+    <script src="../js/waypoints.min.js"></script>
+    <script src="../js/jquery.slicknav.min.js"></script>
+    <script src="../js/retina.min.js"></script>
+    <script src="../js/custom.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $("#testimonials-carousel").owlCarousel({
+            items: 1,
+            autoPlay: 5000,
+            itemsDesktop: [1199, 1],
+            itemsDesktopSmall: [979, 1],
+            itemsTablet: [768, 1]
+        });
+    });
+    </script>
+
+</body>
+
+</html>
+{{end}}
