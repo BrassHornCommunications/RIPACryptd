@@ -60,6 +60,16 @@ func main() {
 		})
 	}
 
+	//Make sure we can generate bitcoin addresses
+	/*BTCAddr, btcerr := getBTCAddr(conf.BTCAddr, conf.BTCUser, conf.BTCPass, true)
+
+	if btcerr != nil {
+		log.Println("############## Cannot request Bitcoin addresses ##############")
+		log.Println(err)
+	} else {
+		log.Println("BTCAddr: " + BTCAddr)
+	}*/
+
 	//Start our watcher process
 	go CryptWatcher(db)
 
@@ -90,6 +100,7 @@ func main() {
 	http.HandleFunc("/1/register/", func(w http.ResponseWriter, r *http.Request) { rCryptRegister(w, r, db, conf) })
 	http.HandleFunc("/1/challenge/", func(w http.ResponseWriter, r *http.Request) { rCryptChallenge(w, r, db) })
 	http.HandleFunc("/1/status/", func(w http.ResponseWriter, r *http.Request) { rCryptStatus(w, r, db) })
+	http.HandleFunc("/1/newbtc/", func(w http.ResponseWriter, r *http.Request) { rCryptNewBTC(w, r, db, conf) })
 
 	//The crypt itself
 	//HEAD 		- GET Meta data status
