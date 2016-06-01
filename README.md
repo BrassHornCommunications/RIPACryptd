@@ -18,6 +18,18 @@ Powers Act 2000 Section 49 (compelled decryption) legislation using technology.
 - You couldn't prevent the destruction of the key because you were no longer in possession of the computer authorised to prevent it's deletion, have you obstructed a Police officer or perverted the course of justice?
 - Have the Police 'stolen' your *digital* property by "permanently depriving" you of it? *(Theft Act 1968)*
 
+## Development
+- [x] Register
+- [x] Create a new crypt
+- [x] Checkin with crypt
+- [x] View status of a crypt (API)
+- [ ] View status of a crypt (HTML)
+- [x] Generate a challenge
+- [x] Generate a new Bitcoin address
+- [ ] Delete a crypt
+- [ ] Specify a notification method if a checkin period is missed
+
+
 ## Disclaimers
 **We are not a lawyers, solictiors or in any way well versed in the law. This software may result in you being found guilty of Failure to comply with a notice under the Regulation of Investigatory Powers Act 2000 and sentenced to up to 5 years in prison (or worse)**
 

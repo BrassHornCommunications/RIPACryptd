@@ -8,6 +8,9 @@ import (
 	"time"
 )
 
+// The CryptWatcher runs every few minutes and iterates over all the stored
+// crypts. If it finds one that has missed the cumulative deadline (checkins x
+// miss count) then it will scrub the CipherText and set IsDestroyed to true
 func CryptWatcher(db *bolt.DB) {
 	for {
 		var crypt Crypt
@@ -47,10 +50,10 @@ func CryptWatcher(db *bolt.DB) {
 							log.Printf("CryptID: %s | Crypt Last Checkin: %d is nearing threshold (%f of %d)", cryptID, crypt.LastCheckIn, missCount, crypt.MissCount)
 						}
 					} else {
-						log.Printf("CryptID: %s is within boundaries (%d / %d)", cryptID, duration, crypt.CheckInDuration)
+						//log.Printf("CryptID: %s is within boundaries (%d / %d)", cryptID, duration, crypt.CheckInDuration)
 					}
 				} else {
-					log.Printf("CryptID: %s has already been destroyed", cryptID)
+					//log.Printf("CryptID: %s has already been destroyed", cryptID)
 				}
 				log.Printf("----------------------")
 

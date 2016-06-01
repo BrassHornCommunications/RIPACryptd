@@ -10,6 +10,8 @@ import (
 	"time"
 )
 
+// rCryptChallenge accepts a HTTP POST and generates a new nonce for a user
+// which is then encrypted with their public key.
 func rCryptChallenge(w http.ResponseWriter, r *http.Request, db *bolt.DB) {
 	w.Header().Set("Content-Type", "application/json")
 	if HSTSENABLED == true {
@@ -35,7 +37,7 @@ func rCryptChallenge(w http.ResponseWriter, r *http.Request, db *bolt.DB) {
 				challengeSecret, err = EncryptForUser(challenge.Challenge, clientRequest.UserID, db)
 
 				if err == nil {
-					log.Printf("Challenge is: %s", challenge.Challenge)
+					//log.Printf("Challenge is: %s", challenge.Challenge)
 
 					//Add a double check that this challenge is only for this user
 					challenge.UserID = clientRequest.UserID

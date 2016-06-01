@@ -75,7 +75,7 @@ func rCryptManage(w http.ResponseWriter, r *http.Request, db *bolt.DB) {
 		} else {
 			if crypt.IsDestroyed {
 				response.StatusCode = http.StatusGone
-				response.Message = "Crypt metadata retrived but crypt was wiped"
+				response.Message = "Crypt metadata retrived but crypt has been destroyed"
 			} else {
 				response.StatusCode = http.StatusOK
 				response.Message = "Crypt Retrieval Successful!"
@@ -132,7 +132,7 @@ func rCryptManage(w http.ResponseWriter, r *http.Request, db *bolt.DB) {
 
 						//Check if the JSON decode worked OK
 						if err != nil {
-							log.Print("Error doing the query" + err.Error())
+							log.Print("Error during crypt ID query: " + err.Error())
 							return err
 						}
 
@@ -199,7 +199,6 @@ func rCryptManage(w http.ResponseWriter, r *http.Request, db *bolt.DB) {
 		w.WriteHeader(response.StatusCode)
 		w.Write(js)
 	} else {
-		log.Print("End error")
 		http.Error(w, err.Error(), 500)
 	}
 

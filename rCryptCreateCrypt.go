@@ -9,6 +9,8 @@ import (
 	"time"
 )
 
+// Takes a HTTP POST payload and creates a locally stored crypt.
+// This function should set sensible defaults if their values are not present
 func rCryptCreateCrypt(w http.ResponseWriter, r *http.Request, db *bolt.DB) {
 	w.Header().Set("Content-Type", "application/json")
 	if HSTSENABLED == true {

@@ -14,12 +14,13 @@ import (
 	"log"
 )
 
-const HSTSEXPIRY = 94670856
-const APIVERSION = 1
-const DEFAULT_CHECKINDURATION = 86400
-const DEFAULT_MISSCOUNT = 3
-const HSTSENABLED = false
-const BRASSHORNCOMMSPUBLICKEY = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+const (
+	HSTSEXPIRY              = 94670856
+	APIVERSION              = 1
+	DEFAULT_CHECKINDURATION = 86400
+	DEFAULT_MISSCOUNT       = 3
+	HSTSENABLED             = false
+	BRASSHORNCOMMSPUBLICKEY = `-----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQINBFTObmoBEACez9q5ntEeOT1hgqMJu4p0aIYRDOSrDmYefIjhpnIzQ7zagxQ9
 G01buyB+EqZStFsk7Kr2aszZmEpKAleTi5s9TGVOHWD+eTBkcG6d+oYzPmN2bQlK
@@ -70,11 +71,11 @@ ZUdpTlUV5JMG8+LmfNlOkiYS6IDh/UGgvPgG0nyNXRQtalwAnv7ru9N2X85Q/IEQ
 eO0ll5q7972yHCIIpUYlpvlePhJG1aHiE3w98uYvivdo8WhgjOyz
 =4UbB
 -----END PGP PUBLIC KEY BLOCK-----`
+)
 
+//Generates an MD5 Hash string from a given string
 func GetMD5Hash(text string) string {
-	//log.Printf("GetMD5Hash received %s", text)
 	hash := md5.Sum([]byte(text))
-	//log.Printf("Returned %s", hex.EncodeToString(hash[:]))
 	return hex.EncodeToString(hash[:])
 }
 
@@ -132,6 +133,7 @@ func CheckChallenge(challengeStr string, userID uint64, challengeID uint64, db *
 	return success, err
 }
 
+// This should be removed
 func CheckChallengeRequest(clientRequest ClientRequest, db *bolt.DB) (success bool, err error) {
 	if clientRequest.UserID != 0 {
 		return true, nil
@@ -176,7 +178,7 @@ func CheckByteBalance(CryptContent string, UserID uint64, db *bolt.DB) (int, err
 
 }
 
-//Adjusts a users Byte balance
+// Adjusts a users Byte balance
 func IncreaseUserByteUsage(byteCount int, userID uint64, db *bolt.DB) (int64, error) {
 
 	//Populate the users account
@@ -212,7 +214,7 @@ func IncreaseUserByteUsage(byteCount int, userID uint64, db *bolt.DB) (int64, er
 	}
 }
 
-//Used when a user pays for more storage
+// Used when a user pays for more storage
 func AddUserByteBalance(byteCount int64, userID uint64, db *bolt.DB) (byteBudget int64, err error) {
 	//Populate the users account
 	var account Account
@@ -246,6 +248,9 @@ func AddUserByteBalance(byteCount int64, userID uint64, db *bolt.DB) (byteBudget
 	}
 }
 
+// When we need to encrypt something for a user this function extracts their
+// public key from the database, encrypts the secret and returns the armoured
+// output.
 func EncryptForUser(secret string, userID uint64, db *bolt.DB) (cipherText string, err error) {
 
 	var account Account
@@ -302,6 +307,8 @@ func itob(v uint64) []byte {
 	return b
 }
 
+// A very cursory sanity check of a string payload to ensure it can be parsed
+// as a GPG public key
 func VerifyGPGPublicKey(PublicKey string) (string, error) {
 	keyBuffer := bytes.NewBufferString(PublicKey)
 	entityList, err := openpgp.ReadArmoredKeyRing(keyBuffer)
