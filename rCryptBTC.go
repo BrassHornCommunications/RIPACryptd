@@ -7,11 +7,15 @@ import (
 	"time"
 )
 
+// getBTCAddr calls out to the specified Bitcoin full node and requests a new
+// bitcoin address.
+// This new address is then stored against the users account and can be used
+// for adding additional storage.
 func getBTCAddr(BTCURL, BTCUser, BTCPass string, BTCDisableTLS bool) (string, error) {
 	log.Printf("User: %s, Pass: %s", BTCUser, BTCPass)
 
 	connCfg := &btcrpcclient.ConnConfig{
-		Host:         BTCURL,
+		Host:         BTCURL + ":8332",
 		Endpoint:     "ws",
 		User:         BTCUser,
 		Pass:         BTCPass,
@@ -27,18 +31,21 @@ func getBTCAddr(BTCURL, BTCUser, BTCPass string, BTCDisableTLS bool) (string, er
 			log.Printf("Block disconnected: %v (%d) %v", hash, height, time)
 		},
 	}
-	client, err := btcrpcclient.New(connCfg, &ntfnHandlers)
-	if err != nil {
+
+	client, rpcClientErr := btcrpcclient.New(connCfg, &ntfnHandlers)
+	if rpcClientErr != nil {
 		log.Println("Error Creating a client")
-		log.Fatal(err)
+		log.Println(rpcClientErr)
+		return "", rpcClientErr
 	}
-	address, err := client.GetNewAddress("")
-	if err != nil {
+
+	address, newAddrErr := client.GetNewAddress("")
+	if newAddrErr != nil {
 		log.Println("Error getting a new address")
-		return "", err
+		log.Println(newAddrErr)
+		return "", newAddrErr
 	} else {
-		//return "3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy", nil
-		return address.String(), err
+		return address.String(), nil
 	}
 }
 
