@@ -23,7 +23,7 @@ Powers Act 2000 Section 49 (compelled decryption) legislation using technology.
 - [x] Create a new crypt
 - [x] Checkin with crypt
 - [x] View status of a crypt (API)
-- [ ] View status of a crypt (HTML)
+- [x] View status of a crypt (HTML)
 - [x] Generate a challenge
 - [x] Generate a new Bitcoin address
 - [ ] Delete a crypt
