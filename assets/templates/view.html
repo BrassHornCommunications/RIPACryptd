@@ -1,11 +1,11 @@
-{{define "help-create"}}
+{{define "view"}}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RIPACrypt - Help | Creating Crypts</title>
+    <title>RIPACrypt - View Crypt</title>
     <link rel="shortcut icon" href="../../images/icons/favicon.png" />
     <link href='http://fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -42,10 +42,10 @@
                         <li><a href="/">Home</a></li>
 			<li><a href="/about/">About</a></li>
                         <li><a href="/faq/">FAQ</a></li>
-                        <li class="current"><a href="#">Help</a>
+                        <li><a href="#">Help</a>
                             <ul>
                                 <li><a href="/help/">Download, Install &amp; Getting Started</a></li>
-				<li class="current"><a href="/help/create/">Create a Crypt</a></li>
+				<li><a href="/help/create/">Create a Crypt</a></li>
 				<li><a href="/help/checkin/">Check in</a></li>
 				<li><a href="/help/view/">View a Crypt</a></li>
 				<li><a href="/help/destroy/">Destroy a Crypt</a></li>
@@ -62,14 +62,13 @@
     <div class="breadcrumbs">
         <div class="row">
             <div class="col-sm-6">
-                <h1>Creating Crypts</h1>
+                <h1>Crypt {{.Crypt.CryptID}}</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb">
                     <li>You are here: </li>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/help/">Help</a></li>
-                    <li class="active">Creating Crypts</li>
+                    <li class="active">Viewing a Crypt</li>
                 </ol>
             </div>
         </div>
@@ -85,59 +84,20 @@
             <article>
             <img src="images/quote-image2.jpg" alt="" />
             <div class="post-content">
-            <h2>Creating Crypts</h2>
-            <div class="thedate">Last updated: 1st June 2016</div>
+            <h2>Viewing Crypt {{.Crypt.CryptID}}</h2>
+            <div class="thedate">Last Checkin: {{.LastCheckIn}}</div>
             <hr/>
-            <p>This help content is not currently available. You can help by <a href="https://github.com/BrassHornCommunications/RIPACryptd">cloning the server software</a> and making a GitHub pull request</p>
-            <div id="tabs">
-                        <ul>
-                            <li><a href="#tab1"> Using The Official Client </a>
-                            </li>
-                            <li><a href="#tab2"> Using CURL </a>
-                            </li>
-                            <li><a href="#tab3"> Other Clients </a>
-                            </li>
-                        </ul>
+            <p><strong>Description:</strong> {{.Crypt.Description}}</p>
 
-                        <!-- 1st tab  -->
-                        <div id="tab1">
-                          <p>Once you have successfully <a href="/help/">registered an account</a> then creating new crypts is done with the <strong>new</strong> command.</p>
-
-                          <h4>Recommended Usage</h4>
-                          <p>A well crafted crypt consists of the data you wish to store, a vague description that helps define what the data is <em>(e.g. the serial # of the disks which are LUKS encrypted)</em> a customised check-in duration and miss count.</p>
-
-                          <p>The description should be something that if seen standalone <em>(e.g. someone stumbles upon your crypt)</em> doesn't identify you or the contents but if/when you need to rely on RIPACrypts self-destruction mechanism you can point at something that links the crypt to the protected device.</p>
-
-                          <p>The default check-in duration is 86400 seconds (1 day) and the default miss count is 3. This means that if you create a crypt without specifying <strong>-checkinduration</strong> or <strong>-misscount</strong> then you have 3 days to <a href="/help/checkin">perform a check-in</a> before the crypt automatically self destructs.</p>
-
-                          <p>The RIPACrypt client will encrypt the data you provide with your public key before storing it. If you have already encrypted the data and don't want to do it again then you will want to use the <strong>-isencrypted=true</strong> argument.</p>
-
-                          <p>If you want to connect via Tor then pass the -usetor=true argument and RIPACrypt will attempt to use the local SOCKS5 proxy on localhost:9050 / localhost:9051.</p>
-                          <h6>Store "MyFullDiskEncryptionPassphraseOrWhatever" with the default Deadline</h6>
-                          <pre>echo "MyFullDiskEncryptionPassphraseOrWhatever" | rcrypt new -description="A short\
- description to help with prove this crypt is yours"</pre>
-                          
-                          <hr/>
-                          <h6>Store the Contents of MyLongKeyPhrase.txt with a 6 hour Deadline</h6>
-                          <pre>rcrypt new -data ~/MyLongKeyPhrase.txt -description="A short description to\ 
-help with prove this crypt is yours" -checkinduration=3600 -misscount=6</pre>
-
-                        </div>
-
-                        <!-- 2nd tab  -->
-                        <div id="tab2">
-                          <p>You will need to generate and decrypt a challenge before you can use a CURL request to create a crypt but once generated and stored in the requisite environment variables creating a crypt is as simple as;</p>
-                          <pre>SECRET=`pwgen 1450 1 | gpg --encrypt --recipient YourPublicKey@YourDomain.tld | base64 -w0`
-curl -v -H "Accept: application/json" -X POST -d "{\"challenge\":\"$CHALLENGE\", \"challenge_id\":$CHALLENGEID,\"user_id\":$YOURUSERID, \"crypt_content\":\"$SECRET\"}" https://ripacrypt.download/1/crypt/new/</pre>
-
-                        </div>
-
-                        <!-- 3rd tab  -->
-                        <div id="tab3">
-                          <p>There are no 3rd party clients we are aware of. If this changes please let us know.</p>
-                        </div>
-
-                    </div>
+            <p><strong>Crypt Contents:</strong></p>
+            {{if .Crypt.IsDestroyed}}
+            <pre></pre>
+            <p><em>( The area above is blank as the crypt has been destroyed. The encrypted data is unrecoverable. )</em></p>
+            {{else}}
+            <pre style="white-space: pre-wrap;">{{.Crypt.CipherText}}</pre>
+            <p><em>(The data above is encrypted with a GPG public key held only by the owner. We cannot acquire the key nor decrypt this data)</em></p>
+            {{end}}
+            </div>
             </article>
             <!-- End of Blog Post-->
 
@@ -148,13 +108,12 @@ curl -v -H "Accept: application/json" -X POST -d "{\"challenge\":\"$CHALLENGE\",
         <div class="sidebar">
 
         <div class="widget">
-        <h3 class="badge">HELP</h3>
+        <h3 class="badge">MetaData</h3>
         <ul>
-        <li><a href="/help/download/">Download, Install &amp; Getting Started</a></li>
-				<li><a href="/help/create/">Create a Crypt</a></li>
-				<li><a href="/help/checkin/">Check in</a></li>
-				<li class="current"><a href="/help/view/">View a Crypt</a></li>
-				<li><a href="/help/destroy/">Destroy a Crypt</a></li>
+        <li>Destroyed: {{if .Crypt.IsDestroyed}}<span style="color:red; font-weight:bold;">Yes</span>{{else}}<span style="color:green; font-weight:bold;">No</span>{{end}}</li>
+				<li>Created: <em>Restricted</em></li>
+        <li>Checkin Duration: <em>Restricted</em></li>
+        <li>Miss Count: <em>Restricted</em></li>
         </ul>
         </div>
 
@@ -165,11 +124,12 @@ curl -v -H "Accept: application/json" -X POST -d "{\"challenge\":\"$CHALLENGE\",
    </div>-->
 
         <div class="widget">
-       <h3 class="badge">Advanced Usage</h3>
-        <ul>
-          <li><a href="/help/challenge/">Generate a Challenge</a></li>
-          <li><a href="/help/newbtc/">Generate a new Bitcoin Address</a></li>
-        </ul>
+       <h3 class="badge">Notes:</h3>
+       <ul>
+       <li>Brass Horn Communications <strong>cannot</strong> decrypt the contents of any crypts.</li>
+       <li>We cannot ascertain when or if a crypt was manually destroyed</li>
+       <li>We do not store logs so cannot report what IPs checked in for which crypts</li>
+      </ul>
    </div>
 
 
@@ -247,16 +207,10 @@ curl -v -H "Accept: application/json" -X POST -d "{\"challenge\":\"$CHALLENGE\",
     <script src="../../js/jquery.circliful.min.js"></script>
     <script src="../../js/waypoints.min.js"></script>
     <script src="../../js/jquery.slicknav.min.js"></script>
-    <script src="../../js/jquery.responsiveTabs.js"></script>
     <script src="../../js/retina.min.js"></script>
     <script src="../../js/custom.js"></script>
 
-    <script>
-    // ______________ TABS
-    $('#tabs').responsiveTabs({
-        startCollapsed: 'accordion'
-    });
-    </script>
+
 
 
 </body>

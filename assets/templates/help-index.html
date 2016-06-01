@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RIPACrypt - Help | Download and Install</title>
-    <link rel="shortcut icon" href="../images/icons/favicon.png" />
+    <link rel="shortcut icon" href="../../images/icons/favicon.png" />
     <link href='http://fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="logo">
-                    <a href="/"><img src="../images/logo.png" alt="" />
+                    <a href="/"><img src="../../images/logo.png" alt="" />
                     </a>
                 </div>
             </div>
@@ -89,27 +89,22 @@
             <div class="thedate">Last updated: 1st June 2016</div>
             <hr/>
             <h3>Downloading and Installing</h3>
-            <p>We do not currently offer built binaries for RIPACrypt as we encourage people to read the sourcecode to ensure it does what we claim it does before compiling and executing it. To get the latest version of the RIPACrypt client visit https://github.com/BrassHornCommunications/RIPACrypt and clone the repository.</p>
-            <pre>git clone https://github.com/BrassHornCommunications/RIPACrypt.git</pre>
-            <p>RIPACrypt is written in <a href="https://golang.org/">GoLang</a> so you will need to <a href="https://golang.org/dl/">download and install GoLang</a>. Once installed for your operating system you will need to build the binary, do this by issuing the command <em>go build</em> in the RIPACrypt directory e.g.</p>
-            <pre>
-~]$ git clone https://github.com/BrassHornCommunications/RIPACrypt.git
-Cloning into 'RIPACrypt'...
-remote: Counting objects: 5, done.
-remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 5
-Unpacking objects: 100% (5/5), done.
-Checking connectivity... done.
-~]$
-~]$ cd RIPACrypt/
-RIPACrypt]$ go build
+            <p>RIPACrypt is written in <a href="https://golang.org/">GoLang</a> so you will need to <a href="https://golang.org/dl/">download and install the neccessary tools.</a>. Once installed for your operating system you will need to create a workspace, acquire the code and build the binary.</p>
+            <p>We do not currently offer built binaries for RIPACrypt as we encourage people to read the sourcecode to ensure it does what we claim it does before compiling and executing it. The latest version of the RIPACrypt client can be found at <a href="https://github.com/BrassHornCommunications/RIPACrypt">https://github.com/BrassHornCommunications/RIPACrypt</a>.</p>
+
+            <p>To build RIPACrypt you'll need to clone the repository into your <a href="https://golang.org/doc/code.html#Workspaces">GoLang workspace</a>.</p>
+            <pre>go get github.com/BrassHornCommunications/RIPACrypt</pre>
+            <p>Once the code is downloaded you can build the binary and copy it somewhere useful;</p>
+            <pre>~]$ cd src/github.com/BrassHornCommunications/RIPACrypt/
+RIPACrypt]$ go build -o rcrypt &amp;&amp; sudo cp rcrypt /usr/local/bin/
 </pre>
-          <p>Unless there are any error messages you will now have a <em>RIPACrypt</em> executable in your current directory. This executable is your interface to our service.</p>
-          <p>You may want to put this executable in <em>/usr/local/bin</em> or similar</p>
+          <p>Unless there are any error messages you will now have an <em>rcrypt</em> executable in your current directory and in your $PATH This executable is your interface to our service.</p>
+          <!-- <p>You may want to put this executable in <em>/usr/local/bin</em> or similar</p> -->
 
           <h3>Getting Started</h3>
           <p>All communication with the RIPACrypt service is over SSL/TLS and all secrets are encrypted with GPG. To get started you will need to register a GPG public key with the service. Whilst you can use your own GPG keypair we strongly recommend you allow RIPACrypt to handle keys itself to ensure seamless encryption/decryption and challenge answering.</p>
 
-          <pre>RIPACrypt register</pre>
+          <pre>rcrypt register</pre>
 
           <p>You will see the following output;</p>
           <pre>2016/05/20 14:16:59 Cannot read configuration file using defaults /home/bhc/.ripacrypt/rc.conf
@@ -124,11 +119,11 @@ Your unique Bitcoin address is:  16DryUfwH7gF9cVhLuwjkgrxzrBuit5A4D
 
           <p>All accounts come with a 2Kbyte crypt allowance which is enough to store an encrypted version of a 1000+ character password. The next step is to store the data you want to be stored / destroyed.<p>
 
-          <pre>echo "MyFullDiskEncryptionPassphraseOrWhatever" | ./RIPACrypt new -description="A short\
- description to help with prove this crypt is yours"</pre>
+          <pre>echo "MyFullDiskEncryptionPassphraseOrWhatever" | rcrypt new -description="A short\
+ description to help with proving this crypt is yours"</pre>
           <p>or</p>
-          <pre>./RIPACrypt new -data=/path/to/data -description="A short\
- description to help with prove this crypt is yours"</pre>
+          <pre>rcrypt new -data=/path/to/data -description="A short\
+ description to help with proving this crypt is yours"</pre>
           <p>You will receive back the ID of your crypt and some meta information about the crypt itself.</p>
           <pre>{
  "status_code":201,
@@ -140,7 +135,7 @@ Your unique Bitcoin address is:  16DryUfwH7gF9cVhLuwjkgrxzrBuit5A4D
   "crypt_id": "29d48f65cf5899ba6119db5fc37648e5",
   "ciphertext":"W2+6uaow2WwHSitrOw1KmY9yqUykv41cHmdPtMF9pwP4Y9Q/eqOeqOv86+aFFoELgs4=",
   "crypt_timestamp":1464825599,
-  "crypt_description":"A short description to help with prove this crypt is yours",
+  "crypt_description":"A short description to help with proving this crypt is yours",
   "is_crypt_destroyed":false,
   "last_checkin":1464825599,
   "check_in_duration":86400,
