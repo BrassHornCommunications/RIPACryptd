@@ -64,7 +64,7 @@ func rCryptCreateCrypt(w http.ResponseWriter, r *http.Request, db *bolt.DB) {
 						missCount = clientRequest.MissCount
 					}
 
-					if checkInDuration > 3600 {
+					if checkInDuration >= 3600 {
 
 						crypt := Crypt{UserID: clientRequest.UserID,
 							CryptID:         md5Hash,
