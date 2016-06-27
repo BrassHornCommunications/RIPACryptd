@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RIPACrypt - Help | Generate a Challenge</title>
     <link rel="shortcut icon" href="../../images/icons/favicon.png" />
-    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap & Styles -->
     <link href="../../css/bootstrap.css" rel="stylesheet">
@@ -88,7 +88,42 @@
             <h2>Generating a Challenge</h2>
             <div class="thedate">Last updated: 1st June 2016</div>
             <hr/>
-            <p>This help content is not currently available. You can help by <a href="https://github.com/BrassHornCommunications/RIPACryptd">cloning the server software</a> and making a GitHub pull request</p>
+            <div id="tabs">
+                        <ul>
+                            <li><a href="#tab1"> Using The Official Client </a>
+                            </li>
+                            <li><a href="#tab2"> Using CURL </a>
+                            </li>
+                            <li><a href="#tab3"> Other Clients </a>
+                            </li>
+                        </ul>
+
+                        <!-- 1st tab  -->
+                        <div id="tab1">
+                          <p>RIPACrypt uses challenges that are encrypted with your GPG public key as a way of proving that you are authorised to make changes to your account.</p>
+
+                          <p>The RIPACrypt client transparently requests and decrypts challenges before performing other actions.</p>
+
+                          <h4>Recommended Usage</h4>
+                          <p>We do not recommend manually requesting a challenge as it is rarely part of the normal application usage to require an out of band challenge.</p>
+                        <pre>rcrypt getchallenge</pre>
+
+                        </div>
+
+                        <!-- 2nd tab  -->
+                        <div id="tab2">
+                        <p>Acquiring a challenge requires sending your User ID and corresponding GPG fingerprint.</p>
+                        <pre>curl -v -H "Accept: application/json" -X POST -d "{\"fingerprint\":\"447055F36F6D60C1\",\"user_id\":9}" https://ripacrypt.download/1/challenge/</pre>
+
+                        </div>
+
+                        <!-- 3rd tab  -->
+                        <div id="tab3">
+                          <p>There are no 3rd party clients we are aware of. If this changes please let us know.</p>
+                        </div>
+
+                    </div>
+
             </div>
             </article>
             <!-- End of Blog Post-->
@@ -190,20 +225,25 @@
     <!--  End of Footer -->
 <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/hoverIntent.js"></script>
-    <script src="js/superfish.min.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/jquery.circliful.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.slicknav.min.js"></script>
-    <script src="js/retina.min.js"></script>
-    <script src="js/custom.js"></script>
+  <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/hoverIntent.js"></script>
+    <script src="../../js/superfish.min.js"></script>
+    <script src="../../js/owl.carousel.js"></script>
+    <script src="../../js/wow.min.js"></script>
+    <script src="../../js/jquery.circliful.min.js"></script>
+    <script src="../../js/waypoints.min.js"></script>
+    <script src="../../js/jquery.slicknav.min.js"></script>
+    <script src="../../js/jquery.responsiveTabs.js"></script>
+    <script src="../../js/retina.min.js"></script>
+    <script src="../../js/custom.js"></script>
 
-
-
+    <script>
+    // ______________ TABS
+    $('#tabs').responsiveTabs({
+        startCollapsed: 'accordion'
+    });
+    </script>
 
 </body>
 

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RIPACrypt - About</title>
     <link rel="shortcut icon" href="../images/icons/favicon.png" />
-    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap & Styles -->
     <link href="../css/bootstrap.css" rel="stylesheet">
@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="logo">
-                    <a href="index.html"><img src="../images/logo.png" alt="" />
+                    <a href="/"><img src="../images/logo.png" alt="" />
                     </a>
                 </div>
             </div>
@@ -68,7 +68,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb">
                     <li>You are here: </li>
-                    <li><a href="index.html">Home</a>
+                    <li><a href="/">Home</a>
                     </li>
                     <li>Pages
                     </li>
@@ -102,7 +102,14 @@
 </blockquote></p>
               <p>To this end Brass Horn Communications released the <a href="https://brasshorncommunications.uk/projects/s53/">S53 project</a> in mid 2015. This was a software/hardware combination which would destroy all data on a protected computer if it detected tampering <em>(or if a panic button was triggered)</em>. This was a thought experiment for this defence but some have since argued that a more subtle approach may be needed as "trapdooring" your data or purposefully destroying it via a panic button could violate other laws.</p>
 
-              <p>Using RIPACrypt one could store the pass phrase <em>(or a Bitlocker / LUKs keyfile etc)</em> for a given computer in a Crypt.  That computer could be configured to check-in every hour with a 3 hour expiry limit. If the computer was seized then RIPACrypt would destroy the data and timestamp when this was done. As the afflicted party you had no <em>direct</em> control over the destruction process.</p>
+              <p>Using RIPACrypt one could store the pass phrase <em>(or a Bitlocker / LUKs keyfile etc)</em> for a given computer in a Crypt with a 3x 1 hour deadline.  That computer could then be configured to check-in every hour on the hour, if the computer was seized then RIPACrypt would destroy the data after 3 hours and timestamp when this was done.</p>
+
+              <p>You had no <em>direct</em> control over the destruction process as you were no longer in possession of the computer that was authorised to checkin.</p>
+
+              <p>When served with a RIPA s.49 notice you could point them to https://RIPACrypt.download/view/YOURCRYPTID/ and see what happens...</p>
+
+
+              <p><strong>THIS SOFTWARE IS A THOUGHT EXPERIMENT IN DEFEATING BAD LEGISLATION WITH TECHNOLOGY - PLEASE DO NOT RISK A CONVICTION BY RELYING ON IT</strong></p>
             </div>
         </div>
 
@@ -124,7 +131,7 @@
                 <h3>Why Are You Doing This?</h3>
                 <p>Many civil libertarians objected to the compelled decryption powers within RIPA but the past 12 months has seen a worrying rise in the Governments desire to weaken or attack encryption.</p>
                 <p>This came to a head in 2016 when the National Crime Agency attempted to bypass the protections within RIPA <em>(having failed to enforce a s.49 Notice earlier)</em> and force Lauri Love to provide the decryption keys to property he had requested be returned.</p>
-                <p>It has become apparant that between the NCA's disregard for the law and the Home Office's desire to push the Investigatory Powers Bill through we need someting to protect people from compelled decryption!</p>
+                <p>It has become apparant that between the NCA's disregard for the law and the Home Office's desire to push the Investigatory Powers Bill through we need something to protect people from compelled decryption!</p>
             </div>
         </div>
 
@@ -264,7 +271,7 @@
     <script src="../js/retina.min.js"></script>
     <script src="../js/custom.js"></script>
 
-    <script>
+    <!--<script>
     $(document).ready(function() {
         $("#testimonials-carousel").owlCarousel({
             items: 1,
@@ -274,7 +281,7 @@
             itemsTablet: [768, 1]
         });
     });
-    </script>
+    </script>-->
 
 </body>
 

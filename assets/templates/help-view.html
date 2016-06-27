@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RIPACrypt - Help | View a Crypt</title>
     <link rel="shortcut icon" href="../../images/icons/favicon.png" />
-    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap & Styles -->
     <link href="../../css/bootstrap.css" rel="stylesheet">
@@ -88,7 +88,43 @@
             <h2>Viewing Crypts</h2>
             <div class="thedate">Last updated: 1st June 2016</div>
             <hr/>
-            <p>This help content is not currently available. You can help by <a href="https://github.com/BrassHornCommunications/RIPACryptd">cloning the server software</a> and making a GitHub pull request</p>
+            <div id="tabs">
+                        <ul>
+                            <li><a href="#tab1"> Using The Official Client </a>
+                            </li>
+                            <li><a href="#tab2"> Using CURL </a>
+                            </li>
+                            <li><a href="#tab3"> Using the Website </a>
+                            </li>
+                        </ul>
+
+                        <!-- 1st tab  -->
+                        <div id="tab1">
+                          <p>Once you have successfully <a href="/help/create/">created a crypt</a> it can be viewed with the <strong>view</strong> command.</p>
+
+                          <p><strong>WARNING:</strong>Viewing a crypt does not require any authentication so be careful what meta data you expose in the description</p>
+
+                          <h4>Recommended Usage</h4>
+                        <pre>rcrypt checkin -crypt=0ad1f05ccfc3a01327225d9635263152</pre>
+
+                        </div>
+
+                        <!-- 2nd tab  -->
+                        <div id="tab2">
+                        <p>Viewing a crypt is a read-only action so a challenge is not needed</p>
+                        <pre>curl https://ripacrypt.download/1/crypt/0ad1f05ccfc3a01327225d9635263152/</pre>
+
+                        </div>
+
+                        <!-- 3rd tab  -->
+                        <div id="tab3">
+                          <p>To view a Crypt in your browser simply append the CryptID to the URL <strong>https://RIPACrypt.download/crypt/</strong></p>
+
+                          <p> e.g. <a href="https://ripacrypt.download/view/0ad1f05ccfc3a01327225d9635263152/">https://RIPACrypt.download/view/0ad1f05ccfc3a01327225d9635263152/</a></p>
+                        </div>
+
+                    </div>
+
             </div>
             </article>
             <!-- End of Blog Post-->
@@ -190,20 +226,25 @@
     <!--  End of Footer -->
 <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/hoverIntent.js"></script>
-    <script src="js/superfish.min.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/jquery.circliful.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.slicknav.min.js"></script>
-    <script src="js/retina.min.js"></script>
-    <script src="js/custom.js"></script>
+  <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/hoverIntent.js"></script>
+    <script src="../../js/superfish.min.js"></script>
+    <script src="../../js/owl.carousel.js"></script>
+    <script src="../../js/wow.min.js"></script>
+    <script src="../../js/jquery.circliful.min.js"></script>
+    <script src="../../js/waypoints.min.js"></script>
+    <script src="../../js/jquery.slicknav.min.js"></script>
+    <script src="../../js/jquery.responsiveTabs.js"></script>
+    <script src="../../js/retina.min.js"></script>
+    <script src="../../js/custom.js"></script>
 
-
-
+    <script>
+    // ______________ TABS
+    $('#tabs').responsiveTabs({
+        startCollapsed: 'accordion'
+    });
+    </script>
 
 </body>
 

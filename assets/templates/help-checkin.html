@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RIPACrypt - Help | Checking In</title>
     <link rel="shortcut icon" href="../../images/icons/favicon.png" />
-    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap & Styles -->
     <link href="../../css/bootstrap.css" rel="stylesheet">
@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="logo">
-                    <a href="index.html"><img src="../../images/logo.png" alt="" />
+                    <a href="/"><img src="../../images/logo.png" alt="" />
                     </a>
                 </div>
             </div>
@@ -88,7 +88,46 @@
             <h2>Checking in with your Crypts</h2>
             <div class="thedate">Last updated: 1st June 2016</div>
             <hr/>
-            <p>This help content is not currently available. You can help by <a href="https://github.com/BrassHornCommunications/RIPACryptd">cloning the server software</a> and making a GitHub pull request</p>
+            <div id="tabs">
+                        <ul>
+                            <li><a href="#tab1"> Using The Official Client </a>
+                            </li>
+                            <li><a href="#tab2"> Using CURL </a>
+                            </li>
+                            <li><a href="#tab3"> Other Clients </a>
+                            </li>
+                        </ul>
+
+                        <!-- 1st tab  -->
+                        <div id="tab1">
+                          <p>Once you have successfully <a href="/help/create/">created a crypt</a> then checking in <em>(aka resetting the deadmans countdown)</em> is acheived with the <strong>checkin</strong> command.</p>
+
+                          <h4>Recommended Usage</h4>
+                          <p>You should configure a scheduler such as cron to regularly checkin so as to reset the deadline countdown. Ideally you would checkin as regularly as your checkin duration rather than the cumulative duration for two reasons;
+<ol>
+<li>In future versions we may send notifications if your crypt has missed a checkin</li>
+<li>It guarantees that a single missed event <em>(rebooting your PC / clock skew etc)</em> won't result in you missing the deadline entirely.</li>
+</ol>
+                        </p>
+
+                        <p>Checking in is easy;</p>
+                        <pre>rcrypt checkin -crypt=0ad1f05ccfc3a01327225d9635263152</pre>
+
+                        </div>
+
+                        <!-- 2nd tab  -->
+                        <div id="tab2">
+                          <p>You will need to generate and decrypt a challenge before you can use a CURL request to checkin but once generated and decrypted a checkin is as simple as;</p>
+                          <pre>curl -v -H "Accept: application/json" -X POST -d "{\"challenge\":\"5f185b74b96edab86b0c29f26760c433\",\"user_id\":9, \"challenge_id\":22}" https://ripacrypt.download/1/crypt/0ad1f05ccfc3a01327225d9635263152/</pre>
+
+                        </div>
+
+                        <!-- 3rd tab  -->
+                        <div id="tab3">
+                          <p>There are no 3rd party clients we are aware of. If this changes please let us know.</p>
+                        </div>
+
+                    </div>
             </div>
             </article>
             <!-- End of Blog Post-->
@@ -189,21 +228,25 @@
 
     <!--  End of Footer -->
 <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+<script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/hoverIntent.js"></script>
+    <script src="../../js/superfish.min.js"></script>
+    <script src="../../js/owl.carousel.js"></script>
+    <script src="../../js/wow.min.js"></script>
+    <script src="../../js/jquery.circliful.min.js"></script>
+    <script src="../../js/waypoints.min.js"></script>
+    <script src="../../js/jquery.slicknav.min.js"></script>
+    <script src="../../js/jquery.responsiveTabs.js"></script>
+    <script src="../../js/retina.min.js"></script>
+    <script src="../../js/custom.js"></script>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/hoverIntent.js"></script>
-    <script src="js/superfish.min.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/jquery.circliful.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.slicknav.min.js"></script>
-    <script src="js/retina.min.js"></script>
-    <script src="js/custom.js"></script>
-
-
-
+    <script>
+    // ______________ TABS
+    $('#tabs').responsiveTabs({
+        startCollapsed: 'accordion'
+    });
+    </script>
 
 </body>
 

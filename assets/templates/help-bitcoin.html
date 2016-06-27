@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RIPACrypt - Help | Generate a new Bitcoin Address for a Crypt</title>
     <link rel="shortcut icon" href="../../images/icons/favicon.png" />
-    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Hind:400,300,600,500,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap & Styles -->
     <link href="../../css/bootstrap.css" rel="stylesheet">
@@ -88,7 +88,46 @@
             <h2>Generating New Bitcoin Addresses</h2>
             <div class="thedate">Last updated: 1st June 2016</div>
             <hr/>
-            <p>This help content is not currently available. You can help by <a href="https://github.com/BrassHornCommunications/RIPACryptd">cloning the server software</a> and making a GitHub pull request</p>
+            <div id="tabs">
+                        <ul>
+                            <li><a href="#tab1"> Using The Official Client </a>
+                            </li>
+                            <li><a href="#tab2"> Using CURL </a>
+                            </li>
+                            <li><a href="#tab3"> Other Clients </a>
+                            </li>
+                        </ul>
+
+                        <!-- 1st tab  -->
+                        <div id="tab1">
+                          <p>Future versions of RIPACrypt will allow users to increase their crypt storage budget from the initial 2Kb by trading 1μBTC per byte.</p>
+
+                          <p>It is recommended that one uses a new bitcoin address for every transaction so the RIPACrypt client allows you to generate a new bitcoin address and assign it to your account.</p>
+
+                          <p><strong>WARNING:</strong> RIPACrypt only stores one bitcoin address per account and does not log previously assigned addresses. Do not generate a new address until you are sure all accounting processes / donations etc are processed.</p>
+
+                          <p style="color:red;"><strong>WARNING:</strong> THERE IS CURRENTLY NO ACCOUNTING SYSTEM IN PLACE - BITCOINS SENT WILL HAVE NO EFFECT ON YOUR STORAGE BUDGET.</p>
+
+                          <p style="color:red;"><strong>ANY BITCOINS SENT WILL BE CONSIDERED A DONATION TILL OTHERWISE NOTIFIED!</strong></p>
+
+                          <h4>Recommended Usage</h4>
+                        <pre>rcrypt newbtc</pre>
+
+                        </div>
+
+                        <!-- 2nd tab  -->
+                        <div id="tab2">
+                        <p>We do not currently recommend using this functionality.</p>
+
+                        </div>
+
+                        <!-- 3rd tab  -->
+                        <div id="tab3">
+                          <p>There are no 3rd party clients we are aware of. If this changes please let us know.</p>
+                        </div>
+
+                    </div>
+
             </div>
             </article>
             <!-- End of Blog Post-->
@@ -190,20 +229,25 @@
     <!--  End of Footer -->
 <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/hoverIntent.js"></script>
-    <script src="js/superfish.min.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/jquery.circliful.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.slicknav.min.js"></script>
-    <script src="js/retina.min.js"></script>
-    <script src="js/custom.js"></script>
+  <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/hoverIntent.js"></script>
+    <script src="../../js/superfish.min.js"></script>
+    <script src="../../js/owl.carousel.js"></script>
+    <script src="../../js/wow.min.js"></script>
+    <script src="../../js/jquery.circliful.min.js"></script>
+    <script src="../../js/waypoints.min.js"></script>
+    <script src="../../js/jquery.slicknav.min.js"></script>
+    <script src="../../js/jquery.responsiveTabs.js"></script>
+    <script src="../../js/retina.min.js"></script>
+    <script src="../../js/custom.js"></script>
 
-
-
+    <script>
+    // ______________ TABS
+    $('#tabs').responsiveTabs({
+        startCollapsed: 'accordion'
+    });
+    </script>
 
 </body>
 
