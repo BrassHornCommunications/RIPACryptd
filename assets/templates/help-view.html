@@ -100,12 +100,16 @@
 
                         <!-- 1st tab  -->
                         <div id="tab1">
-                          <p>Once you have successfully <a href="/help/create/">created a crypt</a> it can be viewed with the <strong>view</strong> command.</p>
+                          <p>Once you have successfully <a href="/help/create/">created a crypt</a> it can be viewed with the <strong>get</strong> command.</p>
 
                           <p><strong>WARNING:</strong>Viewing a crypt does not require any authentication so be careful what meta data you expose in the description</p>
 
                           <h4>Recommended Usage</h4>
-                        <pre>rcrypt checkin -crypt=0ad1f05ccfc3a01327225d9635263152</pre>
+                        <pre>rcrypt get -crypt=0ad1f05ccfc3a01327225d9635263152</pre>
+
+                          <h4>Advanced Usage</h4>
+                          <pre>rcrypt get -crypt=0ad1f05ccfc3a01327225d9635263152 -decrypt=false</pre>
+                          <pre>rcrypt get -crypt=0ad1f05ccfc3a01327225d9635263152 -debug=true</pre>
 
                         </div>
 
