@@ -14,12 +14,13 @@ import (
 func getBTCAddr(BTCURL, BTCUser, BTCPass string, BTCDisableTLS bool) (string, error) {
 	log.Printf("User: %s, Pass: %s", BTCUser, BTCPass)
 
+	//Port is usually 8332
 	connCfg := &btcrpcclient.ConnConfig{
-		Host:         BTCURL + ":8332",
+		Host:         BTCURL + ":443",
 		Endpoint:     "ws",
 		User:         BTCUser,
 		Pass:         BTCPass,
-		DisableTLS:   true,
+		DisableTLS:   false,
 		HTTPPostMode: true,
 	}
 
